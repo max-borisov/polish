@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: polish_trainer
+  password:
+
+development:
+  <<: *default
+  database: polish_trainer_development
+
+test:
+  <<: *default
+  database: polish_trainer_test
+
+production:
+  <<: *default
+  database: polish_trainer_production
+  username: PolishTrainer
+  password: <%= ENV['POLISHTRAINER_DATABASE_PASSWORD'] %>
