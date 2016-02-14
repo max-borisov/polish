@@ -1,6 +1,7 @@
 class Record < ActiveRecord::Base
   belongs_to :category
 
-  validates :title, presence: true
-  validates :title, length: { maximum: 200 }
+  validates :category_id, :pl, :ru, presence: true
+  validates :pl, :ru, length: { maximum: 200 }
+  validates :category_id, numericality: { only_integer: true }
 end
