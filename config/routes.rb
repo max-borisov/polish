@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :categories
+  resources :sprints, only: [:create]
+  get 'sprints/destroy' => 'sprints#destroy'
+  resources :sprint_records, only: [:show, :create]
+  # resources :sprint_records, only: [:show, :create]
   root 'categories#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
