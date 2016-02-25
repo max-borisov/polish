@@ -4,7 +4,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    # dsdvfd
     @category = Category.find(params[:id])
     @records = @category.records.active
   end

@@ -4,3 +4,11 @@
 .category-record {
   margin-bottom: 30px;
 }
+.category-record {
+  .category-record-divider {
+    width: 200px;
+    border-bottom: 1px solid #eee;
+    margin: 0 auto;
+    padding-top: 15px;
+  }
+}

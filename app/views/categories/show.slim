@@ -1,10 +1,10 @@
 h2 = "#{@category.title}"
 hr/
-/* table.table.table-striped.text-center */
-.alert.alert-notice = flash[:notice]
-table.table.table-striped
+div = link_to 'Назад', categories_path, class: 'btn btn-primary'
+- if flash[:notice]
+  .alert.alert-notice = flash[:notice]
+div.text-center
   = render @records
-hr/
 - if @records.any?
   .row.text-center
-    = button_to 'Start', sprints_path, class: 'btn btn-primary', params: { category_id: @category.id }
+    = button_to 'Старт', sprints_path, class: 'btn btn-primary', params: { category_id: @category.id }
