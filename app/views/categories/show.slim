@@ -1,3 +1,10 @@
 h2 = "#{@category.title}"
 hr/
-= render @category.records
+/* table.table.table-striped.text-center */
+.alert.alert-notice = flash[:notice]
+table.table.table-striped
+  = render @records
+hr/
+- if @records.any?
+  .row.text-center
+    = button_to 'Start', sprints_path, class: 'btn btn-primary', params: { category_id: @category.id }
