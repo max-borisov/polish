@@ -4,6 +4,7 @@ class SprintRecordsController < ApplicationController
     redirect_to sprints_destroy_path and return if sprint_finished?
     @record = session[:sprint][:records][params[:id].to_i-1]
     @records_count = session[:sprint][:records].count
+    @category_title = session[:sprint][:category_title]
     redirect_to categories_path if @record.nil?
   end
 

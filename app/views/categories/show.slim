@@ -1,8 +1,10 @@
-h2 = "#{@category.title}"
+h1 = "Тема: #{@category.title}"
 hr/
 div = link_to 'Назад', categories_path, class: 'btn btn-primary'
+
 - if flash[:notice]
-  .alert.alert-notice = flash[:notice]
+  br/
+  .alert.alert-info.text-center = flash[:notice]
 div.text-center
   = render @records
 - if @records.any?

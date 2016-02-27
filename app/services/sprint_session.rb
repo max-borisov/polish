@@ -9,8 +9,13 @@ class SprintSession
     @session[:sprint] = {
       records: sprint_records,
       index: 1,
-      category_id: category_id
+      category_id: category_id,
+      category_title: category_title(category_id)
     }
+  end
+
+  def category_title category_id
+    Category.find(category_id).title
   end
 
   def destroy

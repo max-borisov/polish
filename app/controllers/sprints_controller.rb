@@ -7,7 +7,7 @@ class SprintsController < ApplicationController
   def destroy
     sprint_session = SprintSession.new(session)
     sprint_session.symbolize_keys
-    flash[:notice] = "#{sprint_session.failed_records_count} ошибок"
+    flash[:notice] = "Кол-во ошибок: #{sprint_session.failed_records_count}. Все отлично."
     category_id = session[:sprint][:category_id]
     SprintSession.new(session).destroy
     redirect_to category_path(category_id)

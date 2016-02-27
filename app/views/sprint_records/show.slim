@@ -1,12 +1,17 @@
-h1 = "Record #{@record[:id]}"
+h1 = "Тема: #{@category_title}"
 hr/
+div
+  .pull-left
+    span.badge.badge-big = "#{params[:id]} / #{@records_count} "
+  .pull-right
+    = link_to 'Остановить тест', sprints_destroy_path, class: 'label label-danger'
+br/
+br/
 - if flash[:alert]
   .alert.alert-warning.text-center = flash[:alert]
-p
-  span.badge = "#{params[:id]} / #{@records_count} "
 .well.text-center.text-big = @record[:ru]
 = form_for '', url: sprint_records_path do |f|
   = hidden_field_tag 'record[id]', params[:id]
   .form-group
     = text_field_tag 'record[answer]', '', class: 'form-control text-big text-center'
-  = submit_tag 'Проверить', class: 'btn btn-primary'
+  .text-center = submit_tag 'Проверить', class: 'btn btn-primary'
