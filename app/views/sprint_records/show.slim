@@ -1,17 +1,19 @@
-h1 = "Тема: #{@category_title}"
+- default_input_text = @sprint_record.answer || ''
+h1 = "Тема: #{sprint_session_categoty_title}"
 hr/
 div
   .pull-left
-    span.badge.badge-big = "#{params[:id]} / #{@records_count} "
+    span.badge.badge-big = "#{@sprint_record.id} / #{sprint_session_records_count} "
   .pull-right
     = link_to 'Остановить тест', sprints_destroy_path, class: 'label label-danger'
 br/
 br/
-- if flash[:alert]
-  .alert.alert-warning.text-center = flash[:alert]
-.well.text-center.text-big = @record[:ru]
+- if @error_message
+  p.text-danger.text-center = @error_message
+.well.text-center.text-big = @sprint_record.ru
 = form_for '', url: sprint_records_path do |f|
-  = hidden_field_tag 'record[id]', params[:id]
+  = hidden_field_tag 'sprint_record[id]', @sprint_record.id
   .form-group
-    = text_field_tag 'record[answer]', '', class: 'form-control text-big text-center'
+    = text_field_tag 'sprint_record[answer]', default_input_text,
+                      class: 'form-control text-big text-center', autofocus: true
   .text-center = submit_tag 'Проверить', class: 'btn btn-primary'

@@ -37,4 +37,8 @@ class SprintSession
   def failed_records_count
     @session[:sprint][:records].select{ |i| i[:error] > 0  }.count
   end
+
+  def finished?
+    @session[:sprint][:index] > @session[:sprint][:records].count
+  end
 end
