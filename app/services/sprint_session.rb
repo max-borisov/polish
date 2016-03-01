@@ -26,8 +26,8 @@ class SprintSession
     @session[:sprint].to_hash.symbolize_keys![:records].map!(&:symbolize_keys)
   end
 
-  def update_error_counter params
-    @session[:sprint][:records][params[:record][:id].to_i - 1][:error] = 1
+  def update_error_counter
+    @session[:sprint][:records][index-1][:error] = 1
   end
 
   def update_index
@@ -39,6 +39,10 @@ class SprintSession
   end
 
   def finished?
-    @session[:sprint][:index] > @session[:sprint][:records].count
+    index > @session[:sprint][:records].count
+  end
+
+  def index
+    @session[:sprint][:index]
   end
 end
