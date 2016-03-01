@@ -18,4 +18,4 @@ production:
   <<: *default
   database: polish_trainer_production
   username: PolishTrainer
-  password: <%= ENV['POLISHTRAINER_DATABASE_PASSWORD'] %>
+  password: 
