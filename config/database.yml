@@ -18,4 +18,3 @@ production:
   <<: *default
   database: polish_trainer_production
   username: PolishTrainer
-  password: 
